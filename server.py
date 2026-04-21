@@ -42,7 +42,7 @@ class ChatHandler(tornado.websocket.WebSocketHandler):
             cliente.write_message("🔴 Um usuário saiu da sala")
 
     def check_origin(self, origin):
-        # Libera conexão de qualquer origem (pra teste)
+        # Vai libera conexão de qualquer origem (teste)
         return True
 
 
