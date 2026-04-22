@@ -1,24 +1,43 @@
 @echo off
-echo Iniciando múltiplas instâncias do servidor DocShare...
+title DocShare Multi Server
 
-echo Iniciando servidor na porta 8080...
+echo ===============================
+echo Iniciando DocShare...
+echo ===============================
+
+:: Mata processos antigos
+echo Limpando instâncias antigas...
+taskkill /F /IM python.exe >nul 2>&1
+
+timeout /t 1 > nul
+
+:: Servidor 8080
+echo Iniciando servidor 8080...
 start "DocShare-8080" cmd /c "cd /d %~dp0 && python Server.py 8080"
 
-timeout /t 2 /nobreak > nul
+timeout /t 2 > nul
 
-echo Iniciando servidor na porta 8081...
+:: Servidor 8081
+echo Iniciando servidor 8081...
 start "DocShare-8081" cmd /c "cd /d %~dp0 && python Server.py 8081"
 
-timeout /t 2 /nobreak > nul
+timeout /t 2 > nul
 
-echo Iniciando servidor na porta 8082...
+:: Servidor 8082
+echo Iniciando servidor 8082...
 start "DocShare-8082" cmd /c "cd /d %~dp0 && python Server.py 8082"
 
+timeout /t 2 > nul
+
+:: Abre no navegador
+start http://localhost:8000
+start http://localhost:8001
+start http://localhost:8002
+
 echo.
-echo Servidores iniciados!
-echo - Porta 8080: http://localhost:8000 (WebSocket: ws://localhost:8080)
-echo - Porta 8081: http://localhost:8000 (WebSocket: ws://localhost:8081)
-echo - Porta 8082: http://localhost:8000 (WebSocket: ws://localhost:8082)
+echo Servidores iniciados com sucesso!
+echo - http://localhost:8000 (WS: 8080)
+echo - http://localhost:8001 (WS: 8081)
+echo - http://localhost:8002 (WS: 8082)
 echo.
-echo Cada cliente pode escolher qual porta usar na tela de entrada.
 pause
