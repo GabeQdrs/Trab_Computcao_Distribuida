@@ -1,19 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Chat WebSocket</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocShare - Compartilhamento de Documentos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h2>Chat em Tempo Real</h2>
+    <!-- Tela inicial -->
+    <div id="landing-page">
+        <div class="landing-content">
+            <div class="logo">📝</div>
+            <h1>DocShare</h1>
+            <div class="nickname-form">
+                <input type="text" id="landing-nickname" placeholder="Seu apelido..." maxlength="20">
+                <button class="btn-primary" onclick="enterApp()">Entrar</button>
+            </div>
+        </div>
+    </div>
 
-  <div id="chat"></div>
+    <!-- Editor principal -->
+    <div id="main-container">
+        <header>
+            <div class="header-content">
+                <h1>📝 DocShare</h1>
+                <div class="header-info">
+                    <div class="info-badge">👤 <span id="my-nickname"></span></div>
+                    <div class="info-badge">👥 <span id="clients-count">1</span></div>
+                </div>
+            </div>
+        </header>
 
-  <input id="mensagem" placeholder="Digite uma mensagem..." />
-  <button onclick="enviarMensagem()">Enviar</button>
+        <div class="content-container">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3>📁 Documentos</h3>
+                    <button class="new-doc-btn" onclick="createDocument()">+</button>
+                </div>
+                <div id="documents-list"></div>
+            </div>
 
-  <script src="script.js"></script>
+            <div class="editor-container">
+                <textarea id="editor" placeholder="Selecione um documento..."></textarea>
+            </div>
+        </div>
 
+        <footer>
+            <div id="status-message">Conectando...</div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
