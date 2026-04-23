@@ -2,16 +2,16 @@
 
 Editor de texto colaborativo estilo Google Docs, desenvolvido com WebSockets em Python e JavaScript.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-- ✅ Edição colaborativa em tempo real
-- ✅ Validação case-insensitive de nicknames
-- ✅ Gerenciamento de arquivos (criar/deletar/clonar/renomear)
-- ✅ Persistência automática de documentos
-- ✅ Interface moderna e responsiva
-- ✅ **Suporte a múltiplas portas WebSocket**
+- Edição colaborativa em tempo real
+- Validação case-insensitive de nicknames
+- Gerenciamento de arquivos (criar/deletar/clonar/renomear)
+- Persistência automática de documentos
+- Interface moderna e responsiva
+- **Suporte a múltiplas portas WebSocket**
 
-## 🛠️ Como executar
+## Como executar
 
 ### Opção 1: Servidor único (porta padrão 8080)
 ```bash
@@ -38,7 +38,7 @@ python Server.py 8081 &
 python Server.py 8082 &
 ```
 
-## 🌐 Acesso
+## Acesso
 
 Após iniciar o servidor:
 
@@ -64,7 +64,7 @@ Após iniciar o servidor:
 3. Se conseguir conectar mas nickname estiver em uso, tenta 8082
 4. Continua até encontrar uma combinação válida
 
-## 📁 Estrutura do projeto
+## Estrutura do projeto
 
 ```
 Trab_Computcao_Distribuida/
@@ -74,7 +74,7 @@ Trab_Computcao_Distribuida/
 └── start_servers.bat     # Script para múltiplas instâncias
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Porta ocupada
 ```bash
@@ -90,13 +90,13 @@ taskkill /PID <PID> /F
 - Confirme a porta WebSocket no cliente
 - Verifique se não há firewall bloqueando
 
-## 📝 Desenvolvimento
+## Desenvolvimento
 
 - **Python**: 3.8+
 - **WebSockets**: Biblioteca `websockets`
 - **Cliente**: JavaScript nativo (sem frameworks)
 
-## 🎯 Casos de uso
+## Casos de uso
 
 - **Desenvolvimento**: Testes com múltiplas instâncias
 - **Produção**: Balanceamento de carga com portas diferentes
