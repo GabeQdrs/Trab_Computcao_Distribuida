@@ -97,7 +97,17 @@ async def handle_connection(websocket):
                     "content": documents.get("Document1", "")
                 }))
             
-            # 2. Atualizar documento
+            # 2. Obter documento
+            elif data.get("type") == "get_document":
+                doc_name = data.get("name", "Document1")
+                if doc_name in documents:
+                    await websocket.send(json.dumps({
+                        "type": "document_content",
+                        "name": doc_name,
+                        "content": documents[doc_name]
+                    }))
+            
+            # 3. Atualizar documento
             elif data.get("type") == "update_document":
                 doc_name = data.get("name", "Document1")
                 if doc_name in documents:
@@ -111,7 +121,7 @@ async def handle_connection(websocket):
                         "edited_by": nickname
                     }), exclude=websocket)
             
-            # 3. Criar documento
+            # 4. Criar documento
             elif data.get("type") == "create_document":
                 doc_name = data.get("name")
                 if doc_name and doc_name not in documents:

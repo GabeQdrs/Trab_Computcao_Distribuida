@@ -140,9 +140,8 @@ function selectDocument(name) {
     
     if (ws && ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({
-            type: 'update_document',
-            name: name,
-            content: ''
+            type: 'get_document',
+            name: name
         }));
     }
 }
