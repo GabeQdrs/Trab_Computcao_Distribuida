@@ -2,16 +2,16 @@
 
 Editor de texto colaborativo estilo Google Docs, desenvolvido com WebSockets em Python e JavaScript.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-- ✅ Edição colaborativa em tempo real
-- ✅ Validação case-insensitive de nicknames
-- ✅ Gerenciamento de arquivos (criar/deletar/clonar/renomear)
-- ✅ Persistência automática de documentos
-- ✅ Interface moderna e responsiva
-- ✅ **Suporte a múltiplas portas WebSocket**
+- Edição colaborativa em tempo real
+- Validação case-insensitive de nicknames
+- Gerenciamento de arquivos (criar/deletar/clonar/renomear)
+- Persistência automática de documentos
+- Interface moderna e responsiva
+- **Suporte a múltiplas portas WebSocket**
 
-## 🛠️ Como executar
+## Como executar
 
 ### Opção 1: Servidor único (porta padrão 8080)
 ```bash
@@ -38,14 +38,29 @@ python Server.py 8081 &
 python Server.py 8082 &
 ```
 
-## 🌐 Acesso
+## Acesso
 
-Após iniciar o servidor:
+Após iniciar o servidor no PC servidor:
 
-1. Abra `http://localhost:8000` no navegador
+1. Abra `http://localhost:8000` no navegador do próprio servidor
 2. Digite seu nickname
-3. **Opcional**: Defina porta inicial (padrão: 8080)
-4. Clique em "Entrar"
+3. Clique em "Entrar"
+
+### Uso em rede local com 2 PCs
+
+Se você for apresentar em dois computadores na mesma rede:
+
+1. No PC servidor, execute `python server.py`
+2. Verifique o endereço IP do servidor na rede local (por exemplo, `192.168.0.10`)
+3. No segundo PC, abra `http://<IP-do-servidor>:8000` no navegador
+4. Digite outro nickname e clique em "Entrar"
+
+O cliente agora usa automaticamente o host que serviu a página para conectar o WebSocket, então não é necessário alterar o código no navegador.
+
+### Nota
+
+- O `server.py` agora aceita conexões de outros PCs porque o WebSocket está ligado em `0.0.0.0`.
+- O HTTP também funciona em rede local, então o segundo PC pode carregar o site diretamente do servidor.
 
 **Sistema automático**: Se a porta inicial não estiver disponível, o cliente tentará automaticamente portas sequenciais (8081, 8082, etc.) até encontrar um servidor ativo.
 
@@ -64,7 +79,7 @@ Após iniciar o servidor:
 3. Se conseguir conectar mas nickname estiver em uso, tenta 8082
 4. Continua até encontrar uma combinação válida
 
-## 📁 Estrutura do projeto
+## Estrutura do projeto
 
 ```
 Trab_Computcao_Distribuida/
@@ -74,7 +89,7 @@ Trab_Computcao_Distribuida/
 └── start_servers.bat     # Script para múltiplas instâncias
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Porta ocupada
 ```bash
@@ -90,13 +105,13 @@ taskkill /PID <PID> /F
 - Confirme a porta WebSocket no cliente
 - Verifique se não há firewall bloqueando
 
-## 📝 Desenvolvimento
+## Desenvolvimento
 
 - **Python**: 3.8+
 - **WebSockets**: Biblioteca `websockets`
 - **Cliente**: JavaScript nativo (sem frameworks)
 
-## 🎯 Casos de uso
+## Casos de uso
 
 - **Desenvolvimento**: Testes com múltiplas instâncias
 - **Produção**: Balanceamento de carga com portas diferentes

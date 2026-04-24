@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DocShare - Compartilhamento de Documentos em Tempo Real</title>
-
+    <title>DocShare - Compartilhamento de Documentos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Landing Page -->
+    <!-- Tela inicial -->
     <div id="landing-page">
         <div class="landing-content">
             <div class="logo">📝</div>
             <h1>DocShare</h1>
             <div class="nickname-form">
-                <input type="text" id="landing-nickname" placeholder="Digite seu apelido..." maxlength="20">
-                <input type="number" id="ws-port" placeholder="Porta WebSocket (8080)" value="8080">
-                <button class="btn-primary" onclick="enterEditor()">Entrar</button>
+                <input type="text" id="landing-nickname" placeholder="Seu apelido..." maxlength="20">
+                <button class="btn-primary" onclick="enterApp()">Entrar</button>
             </div>
         </div>
     </div>
 
-    <!-- Editor -->
+    <!-- Editor principal -->
     <div id="main-container">
         <header>
             <div class="header-content">
@@ -30,7 +28,6 @@
                 <div class="header-info">
                     <div class="info-badge">👤 <span id="my-nickname"></span></div>
                     <div class="info-badge">👥 <span id="clients-count">1</span></div>
-                    <div class="info-badge">🔌 <span id="current-port-display"></span></div>
                 </div>
             </div>
         </header>
@@ -38,22 +35,22 @@
         <div class="content-container">
             <div class="sidebar">
                 <div class="sidebar-header">
-                    <h3>📁 Arquivos</h3>
-                    <button class="new-file-btn" onclick="createNewFile()">+</button>
+                    <h3>📁 Documentos</h3>
+                    <button class="new-doc-btn" onclick="createDocument()">+</button>
                 </div>
-                <div class="files-list" id="files-list"></div>
+                <div id="documents-list"></div>
             </div>
 
             <div class="editor-container">
-                <textarea id="editor"></textarea>
+                <textarea id="editor" placeholder="Selecione um documento..."></textarea>
             </div>
         </div>
 
         <footer>
-            <div id="status-message">Conectado ✓</div>
+            <div id="status-message">Conectando...</div>
         </footer>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
