@@ -1,10 +1,4 @@
-import asyncio
-import json
-import websockets
-import threading
-import http.server
-import socketserver
-import os
+import asyncio, json, websockets, threading, http.server, socketserver, os
 from datetime import datetime
 
 # Configurações
